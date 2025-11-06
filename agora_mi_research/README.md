@@ -9,7 +9,7 @@ This project implements a comprehensive mechanistic interpretability pipeline fo
 - **RAGTruth**: Word-level hallucination annotation framework ([Wu et al., 2024](https://arxiv.org/abs/2401.00396))
 - **Logit Lens**: Layer-wise interpretation technique ([nostalgebraist, 2020](https://github.com/arnab-api/Logit-Lens-Interpreting-GPT-2))
 - **ReDEeP**: Mechanistic interpretability for hallucination detection ([Sun et al., 2024](https://github.com/Jeryi-Sun/ReDEeP-ICLR))
-- **AGORA Q&A**: ColBERT retrieval and DPO fine-tuning for factually grounded generation ([Rittner et al., 2024](https://github.com/rrittner1/agora))
+- **AGORA Q&A**: ColBERT retrieval and DPO fine-tuning for factually grounded generation (https://github.com/rrittner1/agora)
 
 ## Project Structure
 
@@ -296,5 +296,6 @@ This project is licensed under the MIT License. See LICENSE file for details.
 ## Contact
 
 For questions or collaboration opportunities, please open an issue on the repository.
+
 
 
