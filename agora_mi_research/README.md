@@ -272,11 +272,11 @@ All experimental results are saved to `outputs/`:
 If you use this code in your research, please cite:
 
 ```bibtex
-@software{agora_mi_research_2024,
-  title={AGORA Mechanistic Interpretability Research Framework},
-  author={AGORA MI Research Team},
-  year={2024},
-  note={Implementation of RAGTruth, Logit Lens, and ReDEeP methodologies}
+@software{NA,
+  title={NA},
+  author={NA},
+  year={2025},
+  note={NA}
 }
 ```
 
@@ -296,4 +296,5 @@ This project is licensed under the MIT License. See LICENSE file for details.
 ## Contact
 
 For questions or collaboration opportunities, please open an issue on the repository.
+
 
