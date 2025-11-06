@@ -1,0 +1,110 @@
+# AGORA MI Research Configuration
+
+# Random seed for reproducibility
+random_seed: 42
+
+# Data configuration
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  annotations_path: "data/annotations"
+  num_documents: 50
+  stratified_sampling: true
+
+# Model configuration
+model:
+  type: "vanilla"  # Options: "vanilla", "dpo"
+  name: "mistralai/Mistral-7B-Instruct-v0.2"
+  quantization: "4bit"
+  max_length: 2048
+  temperature: 0.7
+  top_p: 0.9
+  
+  # DPO fine-tuned model settings (AGORA Q&A integration)
+  dpo:
+    base_model: "mistralai/Mistral-7B-Instruct-v0.2"
+    adapter_path: null  # Path to DPO LoRA adapter if available
+    beta: 0.1  # DPO temperature parameter
+    use_adapter: false  # Set true if using LoRA adapter
+
+# Embedding configuration
+embedding:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  dimension: 384
+
+# RAG configuration
+rag:
+  retriever:
+    type: "sentence_transformer"  # Options: "sentence_transformer", "colbert"
+    top_k: 5
+    similarity_threshold: 0.7
+    
+    # Sentence-Transformer settings (default)
+    sentence_transformer:
+      model_name: "sentence-transformers/all-MiniLM-L6-v2"
+      dimension: 384
+    
+    # ColBERT settings (AGORA Q&A integration)
+    colbert:
+      checkpoint: "colbert-ir/colbertv2.0"
+      index_name: "agora_colbert_index"
+      index_path: "data/colbert_indexes"
+      nbits: 2  # Compression (1, 2, or 4)
+      doc_maxlen: 300  # Max document tokens
+      query_maxlen: 32  # Max query tokens
+      kmeans_niters: 4  # K-means iterations
+  
+  vector_store:
+    type: "chromadb"
+    collection_name: "agora_documents"
+
+# MI Analysis configuration
+mi_analysis:
+  attention:
+    extract_all_layers: true
+    num_copying_heads: 5
+  ecs:
+    context_marker_start: "BEGIN_CONTEXT"
+    context_marker_end: "END_CONTEXT"
+    high_ecs_threshold: 0.3
+  pks:
+    confidence_threshold: 0.5
+    entropy_weight: 0.3
+
+# Annotation configuration
+annotation:
+  label_studio_url: "http://localhost:8080"
+  hallucination_categories:
+    - "Evident Baseless Info"
+    - "Subtle Conflict"
+    - "Nuanced Misrepresentation"
+    - "Reasoning Error"
+  gold_dataset_size: 100
+
+# AARF Intervention configuration
+aarf_intervention:
+  enabled: false
+  threshold: 0.6  # Hallucination score threshold for triggering intervention
+  attention_multiplier: 1.5  # Copying heads amplification factor
+  ffn_suppress: 0.7  # FFN output reduction factor
+  intervention_mode: "token_level"  # Options: "token_level", "sequence_level"
+  alpha: 0.6  # ECS weight in hallucination score formula
+  beta: 0.4  # PKS weight in hallucination score formula
+
+# Evaluation configuration
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+  statistical_tests:
+    confidence_level: 0.95
+    significance_threshold: 0.05
+
+# Output configuration
+output:
+  results_path: "outputs"
+  checkpoints_path: "outputs/checkpoints"
+  figures_path: "outputs/figures"
+

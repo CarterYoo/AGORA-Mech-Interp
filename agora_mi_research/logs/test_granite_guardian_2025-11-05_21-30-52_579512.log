@@ -1,0 +1,23 @@
+2025-11-05 21:30:52.581 | INFO     | __main__:test_granite_guardian:23 - ============================================================
+2025-11-05 21:30:52.581 | INFO     | __main__:test_granite_guardian:24 - Testing IBM Granite Guardian Integration
+2025-11-05 21:30:52.581 | INFO     | __main__:test_granite_guardian:25 - ============================================================
+2025-11-05 21:30:56.633 | INFO     | src.annotation.granite_guardian:<module>:25 - vLLM not available (Windows or not installed). Using transformers instead.
+2025-11-05 21:30:56.634 | INFO     | src.annotation.granite_guardian:<module>:30 - Running on Windows - vLLM not supported. Using transformers.
+2025-11-05 21:30:56.634 | INFO     | __main__:test_granite_guardian:30 - 
+Step 1: Initializing Granite Guardian...
+2025-11-05 21:30:56.634 | INFO     | src.annotation.granite_guardian:__init__:87 - Loading Granite Guardian: ibm-granite/granite-guardian-3.3-8b
+2025-11-05 21:30:56.634 | INFO     | src.annotation.granite_guardian:__init__:88 - Using vLLM: False
+2025-11-05 21:30:58.151 | INFO     | src.annotation.granite_guardian:__init__:115 - Loaded with transformers on cuda
+2025-11-05 21:30:58.152 | INFO     | src.annotation.granite_guardian:__init__:117 - Granite Guardian loaded successfully
+2025-11-05 21:30:58.152 | INFO     | __main__:test_granite_guardian:38 - ✅ Granite Guardian loaded successfully
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:41 - 
+Model Info:
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:42 -   Name: ibm-granite/granite-guardian-3.3-8b
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:43 -   Parameters: 8,170,864,640
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:54 - 
+Step 2: Testing groundedness detection...
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:57 - 
+--- Test Case 1: Clear Hallucination ---
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:63 - Question: What funding is allocated for AI modernization?
+2025-11-05 21:30:58.153 | INFO     | __main__:test_granite_guardian:64 - Context: The Act appropriates $500 million to the Department of Commerce for AI-driven sy...
+2025-11-05 21:30:58.154 | INFO     | __main__:test_granite_guardian:65 - Response: The Act provides $500 million for AI modernization and requires military deployment certification.

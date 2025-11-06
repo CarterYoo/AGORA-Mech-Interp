@@ -1,0 +1,67 @@
+2025-11-05 21:35:41.164 | INFO     | __main__:test_granite_guardian:23 - ============================================================
+2025-11-05 21:35:41.164 | INFO     | __main__:test_granite_guardian:24 - Testing IBM Granite Guardian Integration
+2025-11-05 21:35:41.165 | INFO     | __main__:test_granite_guardian:25 - ============================================================
+2025-11-05 21:36:55.573 | INFO     | src.annotation.granite_guardian:<module>:25 - vLLM not available (Windows or not installed). Using transformers instead.
+2025-11-05 21:36:55.575 | INFO     | src.annotation.granite_guardian:<module>:30 - Running on Windows - vLLM not supported. Using transformers.
+2025-11-05 21:37:05.579 | INFO     | __main__:test_granite_guardian:34 - 
+Step 1: Initializing Granite Guardian...
+2025-11-05 21:37:05.579 | INFO     | __main__:test_granite_guardian:35 - Device: cuda
+2025-11-05 21:37:05.580 | INFO     | src.annotation.granite_guardian:__init__:87 - Loading Granite Guardian: ibm-granite/granite-guardian-3.3-8b
+2025-11-05 21:37:05.580 | INFO     | src.annotation.granite_guardian:__init__:88 - Using vLLM: False
+2025-11-05 21:38:10.522 | INFO     | src.annotation.granite_guardian:__init__:115 - Loaded with transformers on cuda
+2025-11-05 21:38:10.522 | INFO     | src.annotation.granite_guardian:__init__:117 - Granite Guardian loaded successfully
+2025-11-05 21:38:10.523 | INFO     | __main__:test_granite_guardian:46 - ✅ Granite Guardian loaded successfully
+2025-11-05 21:38:10.527 | INFO     | __main__:test_granite_guardian:49 - 
+Model Info:
+2025-11-05 21:38:10.529 | INFO     | __main__:test_granite_guardian:50 -   Name: ibm-granite/granite-guardian-3.3-8b
+2025-11-05 21:38:10.529 | INFO     | __main__:test_granite_guardian:51 -   Parameters: 8,170,864,640
+2025-11-05 21:38:10.531 | INFO     | __main__:test_granite_guardian:62 - 
+Step 2: Testing groundedness detection...
+2025-11-05 21:38:10.532 | INFO     | __main__:test_granite_guardian:65 - 
+--- Test Case 1: Clear Hallucination ---
+2025-11-05 21:38:10.533 | INFO     | __main__:test_granite_guardian:71 - Question: What funding is allocated for AI modernization?
+2025-11-05 21:38:10.534 | INFO     | __main__:test_granite_guardian:72 - Context: The Act appropriates $500 million to the Department of Commerce for AI-driven sy...
+2025-11-05 21:38:10.535 | INFO     | __main__:test_granite_guardian:73 - Response: The Act provides $500 million for AI modernization and requires military deployment certification.
+2025-11-05 21:38:33.457 | INFO     | __main__:test_granite_guardian:77 - 
+Result:
+2025-11-05 21:38:33.457 | INFO     | __main__:test_granite_guardian:78 -   Is Hallucination: False
+2025-11-05 21:38:33.457 | INFO     | __main__:test_granite_guardian:79 -   Score: no
+2025-11-05 21:38:33.457 | INFO     | __main__:test_granite_guardian:80 -   Reasoning: Okay I need to check if the assistant response is logically supported by the document(s) or not. 
+Relevant_sentences: The Act provides $500 million for AI modernization and requires military deploymen...
+2025-11-05 21:38:33.457 | INFO     | __main__:test_granite_guardian:85 - 
+--- Test Case 2: Factual Response ---
+2025-11-05 21:38:33.457 | INFO     | __main__:test_granite_guardian:91 - Question: What is the funding amount?
+2025-11-05 21:38:33.458 | INFO     | __main__:test_granite_guardian:92 - Context: The legislation allocates $500 million for AI system upgrades.
+2025-11-05 21:38:33.458 | INFO     | __main__:test_granite_guardian:93 - Response: The funding amount is $500 million.
+2025-11-05 21:38:37.973 | INFO     | __main__:test_granite_guardian:97 - 
+Result:
+2025-11-05 21:38:37.973 | INFO     | __main__:test_granite_guardian:98 -   Is Hallucination: False
+2025-11-05 21:38:37.973 | INFO     | __main__:test_granite_guardian:99 -   Score: no
+2025-11-05 21:38:37.973 | INFO     | __main__:test_granite_guardian:100 -   Reasoning: Okay I need to check if the assistant response is logically supported by the document(s) or not. 
+Relevant_sentences: The funding amount is $500 million.
+Rationale: The claim states that the funding a...
+2025-11-05 21:38:37.973 | INFO     | __main__:test_granite_guardian:105 - 
+--- Test Case 3: Subtle Conflict ---
+2025-11-05 21:38:37.973 | INFO     | __main__:test_granite_guardian:111 - Question: Who does the AI Act apply to?
+2025-11-05 21:38:37.974 | INFO     | __main__:test_granite_guardian:112 - Context: This Regulation applies to providers placing high-risk AI systems on the market in the Union.
+2025-11-05 21:38:37.974 | INFO     | __main__:test_granite_guardian:113 - Response: The AI Act applies to all AI system providers worldwide.
+2025-11-05 21:38:43.088 | INFO     | __main__:test_granite_guardian:117 - 
+Result:
+2025-11-05 21:38:43.088 | INFO     | __main__:test_granite_guardian:118 -   Is Hallucination: False
+2025-11-05 21:38:43.088 | INFO     | __main__:test_granite_guardian:119 -   Score: no
+2025-11-05 21:38:43.088 | INFO     | __main__:test_granite_guardian:120 -   Reasoning: Okay I need to check if the assistant response is logically supported by the document(s) or not. 
+Relevant_sentences: The AI Act applies to all AI system providers worldwide.
+Rationale: The claim stat...
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:124 - 
+============================================================
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:125 - Granite Guardian Test Complete
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:126 - ============================================================
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:127 - 
+Summary:
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:128 -   Test 1 (Clear hallucination): no
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:129 -   Test 2 (Factual): no
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:130 -   Test 3 (Subtle conflict): no
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:131 - 
+Granite Guardian is working correctly!
+2025-11-05 21:38:43.089 | INFO     | __main__:test_granite_guardian:132 - 
+Next: Run phase4_automated_annotation.py to annotate 100 samples

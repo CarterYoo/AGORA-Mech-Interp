@@ -1,0 +1,21 @@
+2025-11-05 21:23:15.500 | INFO     | __main__:test_granite_guardian:23 - ============================================================
+2025-11-05 21:23:15.500 | INFO     | __main__:test_granite_guardian:24 - Testing IBM Granite Guardian Integration
+2025-11-05 21:23:15.500 | INFO     | __main__:test_granite_guardian:25 - ============================================================
+2025-11-05 21:23:46.740 | INFO     | src.annotation.granite_guardian:<module>:25 - vLLM not available (Windows or not installed). Using transformers instead.
+2025-11-05 21:23:46.741 | INFO     | src.annotation.granite_guardian:<module>:30 - Running on Windows - vLLM not supported. Using transformers.
+2025-11-05 21:23:46.741 | INFO     | __main__:test_granite_guardian:30 - 
+Step 1: Initializing Granite Guardian...
+2025-11-05 21:23:46.742 | INFO     | src.annotation.granite_guardian:__init__:87 - Loading Granite Guardian: ibm-granite/granite-guardian-3.3-8b
+2025-11-05 21:23:46.742 | INFO     | src.annotation.granite_guardian:__init__:88 - Using vLLM: False
+2025-11-05 21:26:53.042 | INFO     | src.annotation.granite_guardian:__init__:115 - Loaded with transformers on cuda
+2025-11-05 21:26:53.043 | INFO     | src.annotation.granite_guardian:__init__:117 - Granite Guardian loaded successfully
+2025-11-05 21:26:53.043 | INFO     | __main__:test_granite_guardian:38 - ✅ Granite Guardian loaded successfully
+2025-11-05 21:26:53.043 | ERROR    | __main__:test_granite_guardian:46 - 
+❌ Failed to load Granite Guardian: 'GraniteGuardianAnnotator' object has no attribute 'batch_size'
+2025-11-05 21:26:53.044 | ERROR    | __main__:test_granite_guardian:47 - 
+Troubleshooting:
+2025-11-05 21:26:53.044 | ERROR    | __main__:test_granite_guardian:48 -   1. Install vLLM: pip install vllm
+2025-11-05 21:26:53.044 | ERROR    | __main__:test_granite_guardian:49 -   2. Login to HuggingFace: huggingface-cli login
+2025-11-05 21:26:53.044 | ERROR    | __main__:test_granite_guardian:50 -   3. Check model access: https://huggingface.co/ibm-granite/granite-guardian-3.3-8b
+2025-11-05 21:26:53.044 | ERROR    | __main__:test_granite_guardian:51 - 
+Alternative: Use manual annotation only
